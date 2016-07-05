@@ -48,8 +48,10 @@
 	var ReactDOM = __webpack_require__(33);
 	var Component = __webpack_require__(170);
 
+	var props = window.PROPS;
+
 	ReactDOM.render(
-	  React.createElement(Component), document
+	  React.createElement(Component, props), document
 	);
 
 
@@ -20991,7 +20993,7 @@
 	        React.createElement(
 	          'title',
 	          null,
-	          'Universal App with React'
+	          this.props.title
 	        ),
 	        React.createElement('link', { rel: 'stylesheet', href: '/style.css' })
 	      ),
@@ -20999,24 +21001,23 @@
 	        'body',
 	        null,
 	        React.createElement(
-	          'div',
+	          'h1',
 	          null,
-	          React.createElement(
-	            'h1',
-	            null,
-	            'Hello World!'
-	          ),
-	          React.createElement(
-	            'p',
-	            null,
-	            'Isn\'t server-side rendering remarkable?'
-	          ),
-	          React.createElement(
-	            'button',
-	            { onClick: this._handleClick },
-	            'Click Me'
-	          )
+	          this.props.title
 	        ),
+	        React.createElement(
+	          'p',
+	          null,
+	          'Isn\'t server-side rendering remarkable?'
+	        ),
+	        React.createElement(
+	          'button',
+	          { onClick: this._handleClick },
+	          'Click Me'
+	        ),
+	        React.createElement('script', { dangerouslySetInnerHTML: {
+	            __html: 'window.PROPS=' + JSON.stringify(this.props)
+	          } }),
 	        React.createElement('script', { src: '/bundle.js' })
 	      )
 	    );
